@@ -55,13 +55,16 @@ goto :eof
 
 
 :setFile
+
+set file="%sndParam%"
+set content=%trdParam%
+
 if "%1"=="0" (
-	set file=%fstParam%.txt
-	echo $ Nothin.... > "%fstParam%.txt"
-) else (
-	set file=%sndParam%.txt
-	echo "%trdParam%" > "%sndParam%.txt"
+	set file="%fstParam%"
+	set content=$ Nothin....
 )
+
+echo %content% > %file% 
 
 cmd /c code "%file%"
 
