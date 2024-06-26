@@ -8,7 +8,13 @@ cd /
 
 set start=%time%
 
-dir /s /b "%file%"
+for /f "delims=" %%o in ('dir /s /b "%file%"') do (
+    set output=!output! "%%o"
+)
+
+@REM dir /s /b "%file%"
+
+:: echo !output! > output.txt
 
 set end=%time%
 
