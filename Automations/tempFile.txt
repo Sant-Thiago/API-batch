@@ -1,0 +1,2 @@
+C:\Users\thyth\Documents\Studies\Projects\API-batch\Automations\test.bat
+C:\Users\thyth\Documents\Studies\Projects\API-batch\Automations\teste.txt
