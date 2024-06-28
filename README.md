@@ -1,2 +1,4 @@
 # API-batch
-Api automação códigos batch
+Ferramenta para agilizar processos que a GUI dificulta
+
+Em breve documentação....
