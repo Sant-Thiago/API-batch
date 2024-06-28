@@ -13,9 +13,8 @@ setlocal enabledelayedexpansion
     set file=%res%
     
     call :read %file%
-    set resFinal=!res!
 
-    endlocal & echo %res%
+    endlocal & set res=%res%
 goto :eof
 
 :read
