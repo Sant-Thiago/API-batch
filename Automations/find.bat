@@ -3,18 +3,21 @@
 setlocal
 
 set file=%~1
+set scdParam=%2
 
-cd /
+set pathBase=
+
+if "%scdParam%"=="" (
+    set pathBase=\Users\
+) else (
+    set pathBase=\
+)
+
+cd %pathBase%
 
 set start=%time%
 
-for /f "delims=" %%o in ('dir /s /b "%file%"') do (
-    set output=!output! "%%o"
-)
-
-@REM dir /s /b "%file%"
-
-:: echo !output! > output.txt
+dir /s /b "%file%"
 
 set end=%time%
 
