@@ -6,15 +6,15 @@ setlocal enabledelayedexpansion
 set token=%~1
 
 if "%token%"=="" (
-	call catch "\Users\%defaultUser%\.st\tokens\token.txt" 
+	call catch "\Users\thyth\.st\tokens\token.txt" 
 	set token=!res!
 
 ) else (
-	if exist "\Users\%defaultUser%\.st\tokens\token.txt" (
-		del "\Users\%defaultUser%\.st\tokens\token.txt"
+	if exist "\Users\thyth\.st\tokens\token.txt" (
+		del "\Users\thyth\.st\tokens\token.txt"
 	)
-	echo %token% > "\Users\%defaultUser%\.st\tokens\token.txt"
-	call catch "\Users\%defaultUser%\.st\tokens\token.txt" 
+	echo %token% > "\Users\thyth\.st\tokens\token.txt"
+	call catch "\Users\thyth\.st\tokens\token.txt" 
 	set token=!res!
 )
 
