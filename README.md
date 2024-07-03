@@ -30,7 +30,6 @@
 > - Criação de repositórios no GitHub
 > - E muito mais!
 > 
-> ### Configurar GitHub
 > 
 > ### Configurar GitHub
 > 
