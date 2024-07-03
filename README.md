@@ -32,20 +32,22 @@
 > 
 > ### Configurar GitHub
 > 
-> Para criar repositórios diretamente do terminal, primeiro é necessário configurar o GitHub. Para isso, utilize o comando `configGitHub`, que aceita como parâmetro o seu token do GitHub. Uma vez configurado, você poderá criar repositórios facilmente.
->  
->    ```shell
->    configGitHub "SEU_TOKEN_AQUI"
->    ```
+> ### Configurar GitHub
 > 
-> O comando para criar repositórios é `Repository`. Ele aceita os seguintes parâmetros:
+> Para criar repositórios diretamente do terminal, primeiro configure o GitHub com o comando `configGitHub`, utilizando seu token do GitHub:
+> 
+> ```shell
+> configGitHub "SEU_TOKEN_AQUI"
+> ```
+> 
+> O comando para criar repositórios é `Repository`, que aceita os seguintes parâmetros:
 > 
 > - `name` (String): Nome do repositório.
 > - `description` (String): Descrição do repositório.
 > - `private` (bool): Define se o repositório será privado ou público.
-> - `template` (String): Nome de um repositório existente que será usado como modelo para criar o novo repositório. Repositórios de template são modelos predefinidos que incluem arquivos, pastas e configurações específicas para agilizar a criação de novos projetos com uma estrutura similar.
+> - `template` (String): Nome de um repositório usado como modelo para criar o novo.
 > 
-> O comando `Repository` também pode ser utilizado de forma mais simples, aceitando apenas o nome do diretório como parâmetro ou até mesmo nenhum parâmetro. Nesse caso, os parâmetros serão definidos com valores padrões.
+> O comando `Repository` também pode ser utilizado com apenas o nome do diretório ou sem nenhum parâmetro, utilizando valores padrão:
 > 
 > ```shell
 > Repository "NOME_DO_DIRETORIO"
@@ -57,7 +59,7 @@
 > Repository
 > ```
 > 
-> Com essas configurações, você estará pronto para criar e gerenciar repositórios diretamente do terminal, tornando o processo mais rápido e eficiente.
+> Com essas configurações, você poderá criar e gerenciar repositórios diretamente do terminal de forma rápida e eficiente.
 >
 >
 > ## Contribuição
