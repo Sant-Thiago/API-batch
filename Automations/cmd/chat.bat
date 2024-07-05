@@ -1,5 +1,17 @@
 @echo off
 
-set request=%~1
+set temp=%time:~6,2%
+echo '' > .\%temp%\response.json
 
-curl https://api.openai.com/v1/chat/completions -H "Content-Type: application/json" -H "Authorization: Bearer %OPENAI_KEY_TEST%" -d "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"system\", \"content\": \"SPTech é a melhor faculdade de tecnologia de São Paulo.\"}, {\"role\": \"user\", \"content\": \"%request%\"}]}"
+echo %temp%
+
+@REM set request=%~1
+@REM set "googleKey=-MULo"
+
+@REM curl -H "Content-Type: application/json" -d "{\"contents\":[{\"parts\":[{\"text\":\"%request%\"}]}]}" -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=%googleKey%" > "%temp%\response.json" 2>NUL 
+
+@REM for /f "tokens=2 delims=:}" %%a in ('findstr /c:"\"text\":" "%temp%\response.json"') do (
+@REM     echo Conteúdo: %%a
+@REM )
+
+del "%temp%\response.json"

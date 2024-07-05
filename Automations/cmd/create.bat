@@ -70,5 +70,13 @@ cmd /c code "%file%"
 
 goto :eof
 
+:setDirectory
+
+mkdir "%~1" 
+
+cd "./%~1"
+
+goto :eof
+
 
 endlocal

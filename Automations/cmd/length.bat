@@ -16,6 +16,6 @@ if defined string (
     goto loop
 )
 
-endlocal & echo %length%
+endlocal & set %2=%length%
 
 exit /b
