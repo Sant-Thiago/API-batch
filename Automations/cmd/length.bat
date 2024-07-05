@@ -16,6 +16,6 @@ if defined string (
     goto loop
 )
 
-endlocal & set %2=%length%
+endlocal & set "%~2=%length%"
 
 exit /b

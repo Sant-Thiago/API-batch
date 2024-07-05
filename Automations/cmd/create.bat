@@ -72,9 +72,16 @@ goto :eof
 
 :setDirectory
 
-mkdir "%~1" 
+set file="%sndParam%"
 
-cd "./%~1"
+if "%1"=="0" (
+	set file="%sndParam%"
+)
+
+mkdir %file% 
+
+@REM pushd %file%
+@REM cd %file%
 
 goto :eof
 
