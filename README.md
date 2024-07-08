@@ -44,7 +44,7 @@
 > - `name` (String): Nome do repositório.
 > - `description` (String): Descrição do repositório.
 > - `private` (bool): Define se o repositório será privado ou público.
-> - `template` (String): Nome de um repositório usado como modelo para criar o novo.
+> - `template` (bool): Define se deseja utilizar um repositório como modelo.
 > 
 > O comando `Repository` também pode ser utilizado com apenas o nome do diretório ou sem nenhum parâmetro, utilizando valores padrão:
 > 
