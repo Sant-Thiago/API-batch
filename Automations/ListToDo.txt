@@ -1,0 +1,3 @@
+seguir a prática de mover entre diretorios usando os ../ ou ./
+
+por ultimo definir essa ferramenta como filha da USERPROFILE

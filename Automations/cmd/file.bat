@@ -11,11 +11,10 @@ call length "%fstParam%" size
 
 if %size% GTR 0 (
 
-
-         if 
-         if %size% GTR 2 (
+        if %size% GTR 2 (
                 call :setFile 0
         )
+        
 ) else (
         echo E.S.S.A..B.O.Q.U.I.N.H.A..AI..BEIJA.?
 )

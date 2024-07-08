@@ -3,17 +3,27 @@
 setlocal enabledelayedexpansion
 
 :start
+
+    set directory=%~1
+    set condition=%~2
+
     :: pega os dois ultimos valores da string do time HH:MM:SS
     set id=%time:~6, 2%
     set tempFile=tempFile%id%.txt
 
-    dir /s /b "%1*" > %tempFile%
+    dir /s /b "%directory%*" > %tempFile%
+
 
     call :firstLine %tempFile%
     set file=%res%
-    
-    call :read %file%
 
+    if "%condition%"=="" (
+        call :read %file%
+    ) else if "%condition%"=="1" (
+        call :firstLine %file%
+    )
+
+    del %tempFile%
     endlocal & set res=%res%
 goto :eof
 
@@ -38,13 +48,11 @@ goto :eof
     for /f "usebackq delims=" %%l in ("%file%") do (
         set /a lineCount+=1
         if !lineCount! equ 1 (
-            set lines=!lines!%%l^&echo.
+            set lines=!lines!%%l
         )
     )
 
     set res=%lines%
-    del %tempFile%
-
 goto :eof
 
 :: usebackq: permite que o nome do arquivo seja cercado por aspas duplas, tratando o argumento como um arquivo de texto

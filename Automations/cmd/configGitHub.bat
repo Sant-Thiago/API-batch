@@ -2,19 +2,19 @@
 
 setlocal enabledelayedexpansion
 
-
 set token=%~1
 
 if "%token%"=="" (
-	call catch "\Users\thyth\.st\tokens\token.txt" 
+	call catch "%USERPROFILE%\.st\tokens\token.txt" 
 	set token=!res!
 
 ) else (
-	if exist "\Users\thyth\.st\tokens\token.txt" (
-		del "\Users\thyth\.st\tokens\token.txt"
+	if exist "%USERPROFILE%\.st\tokens\token.txt" (
+		del "%USERPROFILE%\.st\tokens\token.txt"
 	)
-	echo %token% > "\Users\thyth\.st\tokens\token.txt"
-	call catch "\Users\thyth\.st\tokens\token.txt" 
+	mkdir "%USERPROFILE%\.st\tokens"
+	echo %token% > "%USERPROFILE%\.st\tokens\token.txt"
+	call catch "%USERPROFILE%\.st\tokens\token.txt" 
 	set token=!res!
 )
 

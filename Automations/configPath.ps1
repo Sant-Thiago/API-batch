@@ -5,7 +5,7 @@ $currentPath = [System.Environment]::GetEnvironmentVariable("Path", [System.Envi
 $location = Get-Location
 
 # Obtem somente o path do location
-$newPath = $location.Path + '\cmd'
+$newPath = $location.Path + "\cmd"
 
 # Verifica se o diretório já está no PATH
 if ($currentPath -notlike "*$newPath") {
