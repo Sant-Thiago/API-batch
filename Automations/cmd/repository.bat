@@ -75,10 +75,12 @@ goto :eof
 	set directory=%~1
 
 	if not "%directory%"=="" (
-		dir /s /b | findstr /e /r /c:"%directory%$" > "fileToRead.txt"
-		call catch "fileToRead.txt" "1"
-		del "fileToRead.txt"
-		cd /d !res!
+		if not "%directory%"=="." (
+			dir /s /b | findstr /e /r /c:"%directory%$" > "fileToRead.txt"
+			call catch "fileToRead.txt" "1"
+			del "fileToRead.txt"
+			cd /d !res!
+		)
 	)
 	call :pushDirectory
 goto :eof
@@ -87,16 +89,18 @@ goto :eof
 :pushDirectory
 	set url=%url:~1,-2%
 
-	echo "# %name%" >> README.md
+	if not exist README.md (
+		echo # %name% > README.md
+	)
 	git init
-	git add README.md
+	git add .
 	git commit -m "auto commit ST"
 	git branch -M main
 	git remote add origin %url%
 	git push -u origin main
 
 	echo.
-	echo Link::%url:~0, -5%
+	echo Link::%url:~0, -4%
 	echo.
 goto :eof
 
