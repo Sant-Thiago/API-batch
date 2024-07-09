@@ -1,0 +1,1 @@
+$char='a'; $newChar=[char]([int][char]$char + 1); Write-Output $newChar
