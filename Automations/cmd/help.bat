@@ -1,27 +1,61 @@
 @echo off
-
 setlocal enabledelayedexpansion
 
-:: ':;=' substitui o caracter ';' pelo valor colocado no &echo
-:: & separa os comandos
-set paths=%PATH:;=" "%
+set "fstParam=%~1"
 
-for %%p in ("%paths%") do (
-    echo "%%~p" | findStr "API-batch\Automations" > NUL
-    
-    if !errorlevel! EQU 0 (
-        call :showFiles %%p
-        exit /b
-    ) 
+if "%fstParam%" == "" (
+    rem Substitui o caracter ';' pelo valor colocado no &echo
+    rem & separa os comandos
+    set "paths=%PATH:;=" "%"
+
+    for %%p in ("%paths%") do (
+        echo "%%~p" | findstr "API-batch\Automations" > NUL
+        
+        if !errorlevel! EQU 0 (
+            call :showFiles "%%p"
+            exit /b
+        ) 
+    )
+    goto :eof
+) else if /i "%fstParam%" == "system" (
+    echo Available types:
+    echo "info;"
+    echo "operationalsystem (or so);" 
+    echo "processor (or cpu);"
+    echo "computername;"
+    echo "computer (or pc);"
+    echo "computerinfo (or pcinfo);"
+    echo "memory (or ram)" 
+    echo "virtualmemory (or vram);"
+    echo "harddisk (or hdd or hd);"
+    echo "disk;"
+    echo "volume (or vol);"
+    echo "volumes;"
+    echo "network (or net);"
+    echo "networks (or nets);"
+    echo "softwares (or sws);"
+    echo "resource;"
+    echo "desktop;"
+    echo "service;"
+    echo "hal;"
+    echo "power;"
+    echo "printer;"
+    echo "bios;"
+    echo "user;"
+    echo "ip;"
+    echo "process;"
+    echo "driver;"
+    echo "drivers;"
+    echo "ports;"
+    echo "portsconection;"
 )
-goto :eof
 
 :showFiles
+rem Mostra todos os arquivos no diretório passado como parâmetro
 for /f "tokens=*" %%p in ('dir /B %1') do (
-    set file=%%~np
+    set "file=%%~np"
     echo !file!
 )
 
-goto :eof
-
+:end
 endlocal
