@@ -7,18 +7,18 @@ O ST-Tools foi desenvolvido para facilitar e agilizar a manipulação do seu com
 Para iniciar e utilizar os comandos do ST-Tools em qualquer diretório, siga estas etapas simples:
 
 1. Pressione **Ctrl + R** para abrir a janela 'Executar';
-2. Digite **Powershell** e pressione 'Enter';
-3. Clone o repositório do ST-Tools:
+2. Digite: `powershell -Command "Start-Process powershell -Verb RunAs"` e pressione 'Enter'; 
+4. Mude de diretório e clone o repositório ST-Tools:
    ```shell
-   git clone https://github.com/Sant-Thiago/ST-Tools.git
+   Set-Location $env:USERPROFILE; git clone https://github.com/Sant-Thiago/ST-Tools.git
    ```
-4. Navegue até o diretório `/Automations`:
+5. Navegue até o diretório `/Automations`:
    ```shell
    cd ./ST-Tools/Automations
    ```
-5. Execute o arquivo de inicialização **init.ps1**:
+6. Execute o arquivo de inicialização **init.ps1**:
    ```shell
-   ./init.ps1
+   Set-ExecutionPolicy unrestricted; .\init.ps1
    ```
 
 ## Funcionalidades Principais
